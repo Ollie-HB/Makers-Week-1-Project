@@ -18,7 +18,17 @@ methods: initalize(title, contents), title, contents, count_words, reading_time(
 
 # EXAMPLES
 
-
+1) # initalize(title, contents) - constructs title and contents
+2) #count_words("my_title", "one two three") => 3
+3) #count_words("my_title", "") - "" => 0
+4) #reading_time(200) - initialize("my_title", "one" * 500) => 3
+5) #reading_time(0) - fails -- "Reading speed must be greater than 0"
+6) #reading_chunk(200, 1) - initialize("my_title", "one two three")  => "one two three"
+7) #reading_chunk(0, 5) - fails -- "Reading speed must be greater than 0"
+8) #reading_chunk(2, 1) - initialize("my_title", "one two three") => "one two"
+9) #reading_chunk(2, 1) - #reading_chunk(2, 1) - (remainder) - initialize("my_title", "one two three") => "three"
+10) #reading_chunk(2, 1) - #reading_chunk(2, 1) - (restart) - initialize("my_title", "one two three") => "one two"
+11) #reading_chunk(2, 1) - #reading_chunk(1, 1) - (restart on exact character) - initialize("my_title", "one two three") => "one two"
 
 
 4. Implement the Behaviour
