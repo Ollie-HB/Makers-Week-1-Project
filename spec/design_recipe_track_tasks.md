@@ -57,7 +57,7 @@ end
     context "when given empty string" do
         xit "fails" do
             todo = TrackTasks.new
-            expect{ todo.add_task("") }.to fail_error "Error: No string added"
+            expect{ todo.add_task("") }.to raise_error "Error: No string added"
         end
     end
 
@@ -89,41 +89,10 @@ end
     context "when given a string not in the list array" do
         xit "fails" do
             todo = TrackTasks.new
-            item = todo.add_task("clean the car")
-            mark = todo.mark_complete("hoover the floor")
-            expect{ mark }.to fail_error "Error: No such task exists"
+            todo.add_task("clean the car")
+            expect{ todo.mark_complete("clean the motorbike") }.to raise_error "Error: No such task exists"
         end
     end
-
-
-
-
-
-
-#X   - add_task does not store duplicate tasks
-
-     context "when given two identcial strings" do
-        xit "only stores one" do
-            todo = TrackTasks.new
-            item = todo.add_task("clean the car")
-            item = todo.add_task("clean the car")
-            expect(item).to eq ["clean the car"]
-        end
-    end
-
-#X    - show_list shows all strings remaining in the list
-
-    context "when tasks have been entered and marked complete" do
-        xit "prints remaining tasks in list" do
-        todo = TrackTasks.new
-            item = todo.add_task("clean the car")
-            item = todo.add_task("hoover the floor")
-            item = todo.add_task("wash the dishes")
-            mark = todo.mark_complete("hoover the floor")
-            expect(todo.show_list).to eq "clean the car", "wash the dishes"
-        end
-    end
-
 
 4. Implement the Behaviour
 
