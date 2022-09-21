@@ -19,18 +19,18 @@ describe "#count_words" do
         expect(diary_entry.count_words).to eq 0
         end
         
-    describe "#reading_time" do
+    describe "#reading__time" do
         context "given wpm of a reasonable number (e.g. 200)" do
             it "returns number of minutes required to read the content (rounded-up)" do
             diary_entry = DiaryEntry.new("my_title", "one " * 500)
-            expect(diary_entry.reading_time(200)).to eq 3
+            expect(diary_entry.reading__time(200)).to eq 3
             end
         end
 
     context "given wpm of 0" do
         it "fails" do
             diary_entry = DiaryEntry.new("my_title", "one two three ")
-            expect{ diary_entry.reading_time(0) }.to raise_error "Reading speed must be greater than 0"
+            expect{ diary_entry.reading__time(0) }.to raise_error "Reading speed must be greater than 0"
             end
         end
     end
